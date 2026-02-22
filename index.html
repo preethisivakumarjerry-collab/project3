@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Food Menu</title>
+<style>
+body{
+    margin:0;
+    font-family:'Poppins', sans-serif;
+    background:linear-gradient(135deg,#ffe4ec,#fff6d5);
+}
+
+/* Header */
+.header{
+    text-align:center;
+    padding:40px 20px;
+    background:#ff6f91;
+    color:white;
+}
+
+.header h1{
+    font-size:45px;
+    margin:0;
+}
+
+.header p{
+    font-size:18px;
+}
+
+/* Menu Container */
+.menu{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+    padding:40px;
+}
+
+/* Food Card */
+.card{
+    background:white;
+    border-radius:20px;
+    padding:20px;
+    text-align:center;
+    box-shadow:0 10px 25px rgba(0,0,0,0.1);
+    transition:0.4s;
+}
+
+.card:hover{
+    transform:translateY(-10px) scale(1.03);
+}
+
+/* Food Emoji */
+.food-icon{
+    font-size:50px;
+}
+
+/* Food Name */
+.card h3{
+    margin:10px 0;
+    color:#ff6f91;
+}
+
+/* Category */
+.category{
+    background:#ffe4ec;
+    display:inline-block;
+    padding:5px 15px;
+    border-radius:20px;
+    font-size:14px;
+    color:#444;
+}
+
+/* Price */
+.price{
+    font-size:22px;
+    color:#27ae60;
+    font-weight:bold;
+    margin:10px 0;
+}
+
+/* Button */
+button{
+    padding:10px 25px;
+    border:none;
+    border-radius:25px;
+    background:#ff6f91;
+    color:white;
+    font-size:15px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#ff3f6c;
+}
+</style>
+</head>
+
+<body>
+<div class="header">
+    <h1>🍽️ Food Menu</h>
+        <!-- Search & Filter -->
+<div style="text-align:center; padding:20px;">
+    <input 
+        type="text" 
+        id="searchBox" 
+        placeholder="🔍 Search food..."
+        style="
+            padding:12px;
+            width:260px;
+            border-radius:25px;
+            border:2px solid #ff6f91;
+            font-size:15px;
+            outline:none;
+        "
+        onkeyup="searchFood()"
+    >
+
+    <select 
+        id="categoryFilter" 
+        onchange="filterFood()"
+        style="
+            padding:12px;
+            border-radius:25px;
+            border:2px solid #ff6f91;
+            font-size:15px;
+            margin-left:10px;
+        "
+    >
+        <option value="all">All</option>
+        <option value="Fast Food">Fast Food</option>
+        <option value="Indian">Indian</option>
+        <option value="Snacks">Snacks</option>
+        <option value="Dessert">Dessert</option>
+        <option value="Beverage">Beverage</option>
+        <option value="Non-Veg">Non-Veg</option>
+    </select>
+</div>
+
+        <div class="menu">
+
+    <div class="card">
+        <div class="food-icon">🍕</div>
+        <h3>Pizza</h3>
+        <span class="category">Fast Food</span>
+        <div class="price">₹199</div>
+        <button>Order Now</button>
+    </div>
+
+    <div class="card">
+        <div class="food-icon">🍔</div>
+        <h3>Burger</h3>
+        <span class="category">Fast Food</span>
+        <div class="price">₹149</div>
+        <button>Order Now</button>
+    </div>
+
+    <div class="card">
+        <div class="food-icon">🍛</div>
+        <h3>Veg Biryani</h3>
+        <span class="category">Indian</span>
+        <div class="price">₹179</div>
+        <button>Order Now</button>
+    </div>
+
+    <div class="card">
+        <div class="food-icon">🍜</div>
+        <h3>Noodles</h3>
+        <span class="category">Fast Food</span>
+        <div class="price">₹129</div>
+        <button>Order Now</button>
+    </div>
+
+    <div class="card">
+        <div class="food-icon">🥗</div>
+        <h3>Salad</h3>
+        <span class="category">Healthy</span>
+        <div class="price">₹99</div>
+        <button>Order Now</button>
+    </div>
+    <div class="card">
+    <div class="food-icon">🥪</div>
+    <h3>Sandwich</h3>
+    <span class="category">Fast Food</span>
+    <div class="price">₹89</div>
+    <button>Order Now</button>
+</div>
+
+<div class="card">
+    <div class="food-icon">🍟</div>
+    <h3>French Fries</h3>
+    <span class="category">Fast Food</span>
+    <div class="price">₹99</div>
+    <button>Order Now</button>
+</div>
+
+<div class="card">
+    <div class="food-icon">🌮</div>
+    <h3>Taco</h3>
+    <span class="category">Mexican</span>
+    <div class="price">₹159</div>
+    <button>Order Now</button>
+</div>
+
+<div class="card">
+    <div class="food-icon">🍩</div>
+    <h3>Doughnut</h3>
+    <span class="category">Dessert</span>
+    <div class="price">₹79</div>
+    <button>Order Now</button>
+</div>
+
+<div class="card">
+    <div class="food-icon">🍰</div>
+    <h3>Cake</h3>
+    <span class="category">Dessert</span>
+    <div class="price">₹149</div>
+    <button>Order Now</button>
+</div>
+
+<div class="card">
+    <div class="food-icon">🍦</div>
+    <h3>Cone</h3>
+    <span class="category">Dessert</span>
+    <div class="price">₹69</div>
+    <button>Order Now</button>
+</div>
+
+<div class="card">
+    <div class="food-icon">🍧</div>
+    <h3>Shaved Ice</h3>
+    <span class="category">Dessert</span>
+    <div class="price">₹80</div>
+    <button>Order Now</button>
+</div> 
+
+<div class="card">
+    <div class="food-icon">🍨</div>
+    <h3>Ice Creams</h3>
+    <span class="category">Dessert</span>
+    <div class="price">₹125</div>
+    <button>Order Now</button>
+</div>
+
+<div class="card">
+    <div class="food-icon">🍭</div>
+    <h3>Lollipop</h3>
+    <span class="category">Dessert</span>
+    <div class="price">₹40</div>
+    <button>Order Now</button>
+</div>
+
+<div class="card">
+    <div class="food-icon">🍫</div>
+    <h3>Chocolate Bar</h3>
+    <span class="category">Dessert</span>
+    <div class="price">₹50</div>
+    <button>Order Now</button>
+</div>
+
+<div class="card">
+    <div class="food-icon">🍪</div>
+    <h3>Cookies</h3>
+    <span class="category">Dessert</span>
+    <div class="price">₹55</div>
+    <button>Order Now</button>
+</div>
+
+<div class="card">
+    <div class="food-icon">🍮</div>
+    <h3>Custard</h3>
+    <span class="category">Dessert</span>
+    <div class="price">₹120</div>
+    <button>Order Now</button>
+</div>  
+
+<div class="card">
+    <div class="food-icon">🎂</div>
+    <h3>Birthday Cake</h3>
+    <span class="category">Dessert</span>
+    <div class="price">₹800</div>
+    <button>Order Now</button>
+</div>
+
+<div class="card">
+    <div class="food-icon">🥧</div>
+    <h3>Pie</h3>
+    <span class="category">Dessert</span>
+    <div class="price">₹240</div>
+    <button>Order Now</button>
+</div>
+
+<div class="card">
+    <div class="food-icon">🍗</div>
+    <h3>Fried Chicken</h3>
+    <span class="category">Non-Veg</span>
+    <div class="price">₹229</div>
+    <button>Order Now</button>
+</div>
+
+<div class="card">
+    <div class="food-icon">🥘</div>
+    <h3>Paneer Curry</h3>
+    <span class="category">Indian</span>
+    <div class="price">₹189</div>
+    <button>Order Now</button>
+</div>
+
+<div class="card">
+    <div class="food-icon">🍹</div>
+    <h3>Fresh Juice</h3>
+    <span class="category">Beverage</span>
+    <div class="price">₹59</div>
+    <button>Order Now</button>
+</div>
+
+<div class="card">
+    <div class="food-icon">☕</div>
+    <h3>Coffee</h3>
+    <span class="category">Beverage</span>
+    <div class="price">₹49</div>
+    <button>Order Now</button>
+
+</div>
+
+<div class="card">
+    <div class="food-icon">🍚</div>
+    <h3> Fried Rice</h3>
+    <span class="category">Fast Food</span>
+    <div class="price">₹90</div>
+    <button>Order Now</button>
+
+</div>
+ 
+<div class="card">
+    <div class="food-icon">🌯</div>
+    <h3>Shawarma / Roll</h3>
+    <span class="category">Fast Food</span>
+    <div class="price">₹85</div>
+    <button>Order Now</button>
+
+</div> 
+
+<div class="card">
+    <div class="food-icon">🌭</div>
+    <h3>Hot Dog</h3>
+    <span class="category">Fast Food</span>
+    <div class="price">₹139</div>
+    <button>Order Now</button>
+
+</div>
+
+<div class="card">
+    <div class="food-icon">🥟</div>
+    <h3> Samosa</h3>
+    <span class="category">Fast Food</span>
+    <div class="price">₹40</div>
+    <button>Order Now</button>
+
+</div>
+
+<div class="card">
+    <div class="food-icon">🧆</div>
+    <h3> Falafel</h3>
+    <span class="category">Fast Food</span>
+    <div class="price">₹149</div>
+    <button>Order Now</button>
+
+</div>
+
+<div class="card">
+    <div class="food-icon">🥙</div>
+    <h3> Pani Puri</h3>
+    <span class="category">Fast Food</span>
+    <div class="price">₹49</div>
+    <button>Order Now</button>
+
+</div>
+
+<div class="card">
+    <div class="food-icon">🌽</div>
+    <h3> Corn</h3>
+    <span class="category">Snacks</span>
+    <div class="price">₹50</div>
+    <button>Order Now</button>
+
+</div>
+
+<div class="card">
+    <div class="food-icon">🍩</div>
+    <h3>Vada</h3>
+    <span class="category">Snacks</span>
+    <div class="price">₹25</div>
+    <button>Order Now</button>
+
+</div>
+
+<div class="card">
+    <div class="food-icon">🟤</div>
+    <h3>Bonda</h3>
+    <span class="category">Snacks</span>
+    <div class="price">₹30</div>
+    <button>Order Now</button>
+
+</div>
+
+<div class="card">
+    <div class="food-icon">🌶️</div>
+    <h3>Bhajji</h3>
+    <span class="category">Snacks</span>
+    <div class="price">₹39</div>
+    <button>Order Now</button>
+
+</div>
+
+<div class="card">
+    <div class="food-icon">🥟</div>
+    <h3>Momos</h3>
+    <span class="category">Fast Food</span>
+    <div class="price">₹50</div>
+    <button>Order Now</button>
+
+</div>
+
+<div class="card">
+    <div class="food-icon">🥙</div>
+    <h3> Pani Puri</h3>
+    <span class="category">Fast Food</span>
+    <div class="price">₹49</div>
+    <button>Order Now</button>
+
+</div>
+
+<div class="card">
+    <div class="food-icon">🥟</div>
+    <h3>Kachori</h3>
+    <span class="category">Fast Food</span>
+    <div class="price">₹60</div>
+    <button>Order Now</button>
+
+</div>
+
+<div class="card">
+    <div class="food-icon">🧀</div>
+    <h3>Nachos</h3>
+    <span class="category">Fast Food</span>
+    <div class="price">₹90</div>
+    <button>Order Now</button>
+
+</div>
+
+<div class="card">
+    <div class="food-icon">☕</div>
+    <h3>Tea</h3>
+    <span class="category">Beverage</span>
+    <div class="price">₹20</div>
+    <button>Order Now</button>
+
+</div>
+
+<div class="card">
+    <div class="food-icon">🥛</div>
+    <h3>Milkshake</h3>
+    <span class="category">Beverage</span>
+    <div class="price">₹90</div>
+    <button>Order Now</button>
+
+</div>
+
+<div class="card">
+    <div class="food-icon">🥛</div>
+    <h3>Lassi</h3>
+    <span class="category">Beverage</span>
+    <div class="price">₹55</div>
+    <button>Order Now</button>
+
+</div>
+
+<div class="card">
+    <div class="food-icon">🍋</div>
+    <h3>Lemon Juice</h3>
+    <span class="category">Beverage</span>
+    <div class="price">₹40</div>
+    <button>Order Now</button>
+
+</div>
+
+<div class="card">
+    <div class="food-icon">🥤</div>
+    <h3>Soft Drink</h3>
+    <span class="category">Beverage</span>
+    <div class="price">₹60</div>
+    <button>Order Now</button>
+
+</div>
+
+<div class="card">
+    <div class="food-icon">🍳</div>
+    <h3>Egg Omelette</h3>
+    <span class="category">Non Veg</span>
+    <div class="price">₹30</div>
+    <button>Order Now</button>
+
+</div>
+
+<div class="card">
+    <div class="food-icon">🌯</div>
+    <h3>Chicken Shawarma</h3>
+    <span class="category">Nog Veg</span>
+    <div class="price">₹120</div>
+    <button>Order Now</button>
+
+</div>
+
+<div class="card">
+    <div class="food-icon">🐟</div>
+    <h3>Fish Fry</h3>
+    <span class="category">Non Veg</span>
+    <div class="price">₹60</div>
+    <button>Order Now</button>
+
+</div>
+
+<div class="card">
+    <div class="food-icon">🍛</div>
+    <h3>Chicken Biryani</h3>
+    <span class="category">Non Veg</span>
+    <div class="price">₹170</div>
+    <button>Order Now</button>
+
+</div>
+
+<div class="card">
+    <div class="food-icon">🥞</div>
+    <h3>Dosa</h3>
+    <span class="category">Indian</span>
+    <div class="price">₹20</div>
+    <button>Order Now</button>
+
+</div>
+
+<div class="card">
+    <div class="food-icon">🍘</div>
+    <h3>idly with Sambar</h3>
+    <span class="category">Indian</span>
+    <div class="price">₹25</div>
+    <button>Order Now</button>
+
+</div>
+
+<div class="card">
+    <div class="food-icon">🍛</div>
+    <h3>Indian Thali</h3>
+    <span class="category">Indian</span>
+    <div class="price">₹108</div>
+    <button>Order Now</button>
+
+</div>
+
+</body><script>
+function searchFood(){
+    let input = document.getElementById("searchBox").value.toLowerCase();
+    let cards = document.getElementsByClassName("card");
+
+    for(let i=0;i<cards.length;i++){
+        let foodName = cards[i].getElementsByTagName("h3")[0].innerText.toLowerCase();
+        cards[i].style.display = foodName.includes(input) ? "block" : "none";
+    }
+}
+
+function filterFood(){
+    let filter = document.getElementById("categoryFilter").value;
+    let cards = document.getElementsByClassName("card");
+
+    for(let i=0;i<cards.length;i++){
+        let category = cards[i].getElementsByClassName("category")[0].innerText;
+        cards[i].style.display = (filter==="all" || category===filter) ? "block" : "none";
+    }
+}
+</script>
+</html>
